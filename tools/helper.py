@@ -8,12 +8,18 @@ import os
 import pickle
 import sys
 import traceback
-from collections import Iterable  # pylint: disable=no-name-in-module
+#from collections import Iterable  # pylint: disable=no-name-in-module
+
 from configparser import ConfigParser, ExtendedInterpolation
 from logging import handlers
 from multiprocessing.pool import ThreadPool
 
 import pandas as pd
+
+try:
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
 
 CONFIG_FILENAME = 'config.ini'
 log = logging.getLogger(__name__)
